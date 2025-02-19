@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Skill : MonoBehaviour
 {
     protected Player player;
 
+    [SerializeField] protected Image cooldownUI;
     [SerializeField] protected float cooldown;
     protected float cooldownTimer;
 
@@ -25,6 +27,7 @@ public class Skill : MonoBehaviour
         {
             UseSkill();
             cooldownTimer = cooldown;
+            StartCoroutine(UpdateCooldownUI());
             return true;
         }
 
@@ -34,6 +37,18 @@ public class Skill : MonoBehaviour
     public virtual void UseSkill()
     {
 
+    }
+
+    public virtual IEnumerator UpdateCooldownUI()
+    {
+        if (cooldownUI == null)
+            yield break;
+
+        while (cooldownTimer > 0)
+        {
+            cooldownUI.fillAmount = cooldownTimer/ cooldown;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
     public virtual Transform NearestEnemy(Transform _targetTransform)

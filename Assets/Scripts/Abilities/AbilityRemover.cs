@@ -16,6 +16,7 @@ public class AbilityRemover : MonoBehaviour
     public Ability lockAbility;
 
     private void Awake()
+
     {
         GetComponent<CircleCollider2D>().isTrigger = true;
     }
@@ -27,18 +28,22 @@ public class AbilityRemover : MonoBehaviour
             if (lockAbility == Ability.Agility)
             {
                 AbilityHandler.instance.agilityPermitted = false;
+                UIManager.instance.agilityUI.SetActive(false);
             }
             else if (lockAbility == Ability.Rewind)
             {
                 AbilityHandler.instance.rewindPermitted = false;
+                UIManager.instance.rewindUI.SetActive(false);
             }
             else if (lockAbility == Ability.Slow)
             {
                 AbilityHandler.instance.SlowPermitted = false;
+                UIManager.instance.slowUI.SetActive(false);
             }
             else if (lockAbility == Ability.Crystal)
             {
                 AbilityHandler.instance.crystalPermitted = false;
+                UIManager.instance.crystalUI.SetActive(false);
             }
 
             Destroy (gameObject);

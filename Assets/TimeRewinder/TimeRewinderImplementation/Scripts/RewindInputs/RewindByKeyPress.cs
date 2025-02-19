@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -10,19 +11,35 @@ public class RewindByKeyPress : MonoBehaviour
     [SerializeField] KeyCode keyToRewind = KeyCode.Space;
     float rewindValue = 0;
     bool isRewinding = false;
-    
+    bool isActive = false;
+    float timer;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(keyToRewind) && AbilityHandler.instance.CanUseRewind() && !isActive)
+        {
+            isActive = true;
+            timer = RewindManager.Instance.HowManySecondsToTrack - 0.2f;
+        }
+    }
+
     void FixedUpdate()
     {
-        if(Input.GetKey(keyToRewind) && AbilityHandler.instance.rewindPermitted)                   
+        if(!isActive)
         {
-            StartRewind();
-        }
-        else
-        {
-            if(isRewinding)
+            if (isRewinding)
             {
                 StopRewind();
             }
+        }
+
+        if (isActive)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+                isActive = false;
+
+            Rewind();
         }
     }
 
@@ -34,7 +51,7 @@ public class RewindByKeyPress : MonoBehaviour
         isRewinding = false;
     }
 
-    private void StartRewind()
+    private void Rewind()
     {
         rewindValue += rewindIntensity;                 //While holding the button, we will gradually rewind more and more time into the past
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7906570082720271880}
   - component: {fileID: 6564318416091659615}
   - component: {fileID: 6058512751670298683}
+  - component: {fileID: 5122859654194963920}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6393cda332363a041a8caf14802c07db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   cooldown: 1
 --- !u!114 &7406494245645207016
 MonoBehaviour:
@@ -74,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115205d224433ea4fa2d1167f5255c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   cooldown: 0
   clonePrefab: {fileID: 307218062324482477, guid: 9ac7909b8fe0a7b4c9c4498181f38292, type: 3}
   cloneDuration: 1.5
@@ -96,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121dc2adda561749adcd46580c41116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   cooldown: 1
   swordType: 0
   bounceAmount: 4
@@ -128,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319a3f158ad7f6449be54b82d243ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   cooldown: 0
   blackholePrefab: {fileID: 7141584435714515105, guid: 6c7727cbf64350842a038fee50b49622, type: 3}
   maxSize: 15
@@ -148,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f821f39754eb2e442ae7d2ef9ae7fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   cooldown: 0
   crystalPrefab: {fileID: 8735003216284569425, guid: aadc56def6845b84aaecdcb205cad9a0, type: 3}
   crystalDuration: 5
@@ -159,3 +165,23 @@ MonoBehaviour:
   crystalAmount: 3
   multiStackCooldown: 4
   resetWindow: 2.5
+--- !u!114 &5122859654194963920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201420908497185153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b147792dbc1b548af56887ea73c835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
+  cooldown: 7
+  slowAreaPrefab: {fileID: 1667114102284401016, guid: f5cc7871fc7b4fc47b3d9e34512edd71, type: 3}
+  maxSize: 12
+  growSpeed: 15
+  shrinkSpeed: 2
+  slowDuration: 3
+  multiplier: 0.3
