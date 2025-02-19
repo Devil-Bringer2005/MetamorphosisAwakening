@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownUI: {fileID: 0}
-  cooldown: 0
+  cooldown: 1.5
   crystalPrefab: {fileID: 8735003216284569425, guid: aadc56def6845b84aaecdcb205cad9a0, type: 3}
   crystalDuration: 5
   cloneInsteadOfCrystal: 1
@@ -184,4 +184,4 @@ MonoBehaviour:
   growSpeed: 15
   shrinkSpeed: 2
   slowDuration: 3
-  multiplier: 0.3
+  multiplier: 0.419

@@ -143,7 +143,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         {
             return;
         }
-        if(collision.TryGetComponent(out Enemy enemy))
+        if(collision.TryGetComponent(out Enemy_AdvancedAI enemy))
         {
             enemy.FreezeEnemy(true);
             CreateKey(enemy);
@@ -152,13 +152,13 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Enemy enemy))
+        if(collision.TryGetComponent(out Enemy_AdvancedAI enemy))
         {
             enemy.FreezeEnemy(false);
         }
     }
 
-    private void CreateKey(Enemy enemy)
+    private void CreateKey(Enemy_AdvancedAI enemy)
     {
         if(!canCreateHotKeys) { return; }
 

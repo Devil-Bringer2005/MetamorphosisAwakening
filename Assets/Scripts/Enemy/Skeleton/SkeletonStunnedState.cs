@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonStunnedState : EnemyState
 {
     Enemy_Skeleton enemy;
-    public SkeletonStunnedState(Enemy _baseEnemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton _enemy) : base(_baseEnemy, _stateMachine, _animBoolName)
+    public SkeletonStunnedState(Enemy_AdvancedAI _baseEnemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton _enemy) : base(_baseEnemy, _stateMachine, _animBoolName)
     {
         enemy = _enemy;
     }

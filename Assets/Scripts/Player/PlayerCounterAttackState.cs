@@ -31,7 +31,7 @@ public class PlayerCounterAttackState : PlayerState
 
         foreach(var hit in col)
         {
-            if(hit.TryGetComponent(out Enemy enemy))
+            if(hit.TryGetComponent(out Enemy_AdvancedAI enemy))
             {
                 if(enemy.CanBeStunned())
                 {

@@ -12,8 +12,26 @@ public class UIManager : MonoBehaviour
     public GameObject rewindUI;
     public GameObject agilityUI;
 
+    public Image livesUI;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    public void UpdateLivesUI(int amount)
+    {
+        if (amount == 1)
+        {
+            livesUI.fillAmount = 0.2f;
+        }
+        else if (amount == 2)
+        {
+            livesUI.fillAmount = 0.4f;
+        }
+        else if (amount == 3)
+        {
+            livesUI.fillAmount = 0.6f;
+        }
     }
 }

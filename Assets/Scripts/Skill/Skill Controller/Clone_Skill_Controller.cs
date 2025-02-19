@@ -64,7 +64,7 @@ public class Clone_Skill_Controller : MonoBehaviour
 
         foreach (var hit in collider)
         {
-            if (hit.TryGetComponent(out Enemy enemy))
+            if (hit.TryGetComponent(out Enemy_AdvancedAI enemy))
             {
                 enemy.DamageEffect();
                 if (canDuplicate)

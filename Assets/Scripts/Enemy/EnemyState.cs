@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyState
 {
     protected EnemyStateMachine stateMachine;
-    protected Enemy baseEnemy;
+    protected Enemy_AdvancedAI baseEnemy;
     protected Rigidbody2D rb;
 
     protected Transform player;
@@ -15,7 +15,7 @@ public class EnemyState
     protected float stateTimer;
     protected bool triggerCalled;
 
-    public EnemyState(Enemy _baseEnemy, EnemyStateMachine _stateMachine, string _animBoolName)
+    public EnemyState(Enemy_AdvancedAI _baseEnemy, EnemyStateMachine _stateMachine, string _animBoolName)
     {
         baseEnemy = _baseEnemy;
         stateMachine = _stateMachine;

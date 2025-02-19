@@ -19,6 +19,11 @@ public class PlayerStats : CharacterStats
         player.DamageEffect();
     }
 
+    public void ResetPlayer()
+    {
+        currentHealth = maxHealth.GetValue();
+    }
+
     protected override void Die()
     {
         base.Die();

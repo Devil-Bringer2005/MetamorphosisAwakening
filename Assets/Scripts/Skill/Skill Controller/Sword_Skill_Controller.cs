@@ -139,14 +139,14 @@ public class Sword_Skill_Controller : MonoBehaviour
 
                 foreach (var hit in enemies)
                 {
-                    if (hit.TryGetComponent(out Enemy enemy))
+                    if (hit.TryGetComponent(out Enemy_AdvancedAI enemy))
                     SwordSkillDamage(enemy);
                 }
             }
         }
     }
 
-    private void SwordSkillDamage(Enemy enemy)
+    private void SwordSkillDamage(Enemy_AdvancedAI enemy)
     {
         enemy.DamageEffect();
         enemy.StartCoroutine("FreezeTimer", freezeDuration);
@@ -167,7 +167,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < 0.1f)
             {
-                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
+                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy_AdvancedAI>());
                 targetIndex++;
                 bounceAmount--;
 
@@ -203,7 +203,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             return;
         }
 
-        if(collision.TryGetComponent(out Enemy enemy))
+        if(collision.TryGetComponent(out Enemy_AdvancedAI enemy))
             SwordSkillDamage(enemy);
 
         SetupForBounce(collision);
@@ -213,13 +213,13 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void SetupForBounce(Collider2D collision)
     {
-        if (collision.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<Enemy_AdvancedAI>() != null)
         {
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 10);
 
             foreach (var hit in enemies)
             {
-                if (hit.GetComponent<Enemy>() != null)
+                if (hit.GetComponent<Enemy_AdvancedAI>() != null)
                     enemyTarget.Add(hit.transform);
             }
         }
@@ -227,7 +227,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
-        if (pierceAmount > 0 && collision.GetComponent<Enemy>())
+        if (pierceAmount > 0 && collision.GetComponent<Enemy_AdvancedAI>())
         {
             pierceAmount--;
             return;

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-    private Enemy enemy;
+    private Enemy_AdvancedAI enemy;
     protected override void Start()
     {
         base.Start();
-        enemy = GetComponent<Enemy>();
+        enemy = GetComponent<Enemy_AdvancedAI>();
     }
 
     public override void TakeDamage(float _damage)
