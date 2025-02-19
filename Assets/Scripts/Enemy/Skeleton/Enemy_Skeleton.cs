@@ -50,16 +50,4 @@ public class Enemy_Skeleton : Enemy_AdvancedAI
         base.Die();
         StateMachine.ChangeState(DeathState);
     }
-
-    public void Slow(bool status, float multiplier = 1)
-    {
-        if (status)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
 }
