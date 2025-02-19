@@ -82,7 +82,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
 
         foreach(Collider2D hit in col)
         {
-            if(hit.TryGetComponent(out Enemy enemy))
+            if(hit.TryGetComponent(out Enemy_AdvancedAI enemy))
             {
                 enemy.DamageEffect();
             }

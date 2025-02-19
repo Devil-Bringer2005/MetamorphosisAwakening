@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Skeleton : Enemy
+public class Enemy_Skeleton : Enemy_AdvancedAI
 {
     public SkeletonIdleState IdleState { get; private set; }
     public SkeletonMoveState MoveState { get; private set; }
@@ -49,5 +49,17 @@ public class Enemy_Skeleton : Enemy
     {
         base.Die();
         StateMachine.ChangeState(DeathState);
+    }
+
+    public void Slow(bool status, float multiplier = 1)
+    {
+        if (status)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }

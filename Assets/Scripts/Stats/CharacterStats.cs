@@ -250,7 +250,7 @@ public class CharacterStats : MonoBehaviour
 
         foreach (var hit in collider)
         {
-            if (hit.TryGetComponent(out Enemy enemy))
+            if (hit.TryGetComponent(out Enemy_AdvancedAI enemy))
             {
                 float distance = Vector2.Distance(hit.transform.position, transform.position);
                 if (distance < closestEnemyDistance && distance > 0.1)
@@ -267,7 +267,7 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void TakeDamage(float _damage)
     {
-        Debug.Log(_damage);
+        _damage = 100;
         DecreaseCurrentHealthBy(_damage);
 
         if(currentHealth <= 0)

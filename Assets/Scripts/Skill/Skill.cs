@@ -60,7 +60,7 @@ public class Skill : MonoBehaviour
 
         foreach (var hit in collider)
         {
-            if (hit.TryGetComponent(out Enemy enemy))
+            if (hit.TryGetComponent(out Enemy_AdvancedAI enemy))
             {
                 float distance = Vector2.Distance(hit.transform.position, _targetTransform.position);
                 if (distance < closestEnemyDistance)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Entity : RewindAbstract
 {
     [Header("Check info")]
     public Transform attackCheck;
@@ -30,6 +30,9 @@ public class Entity : MonoBehaviour
     public int facingDir { get; private set; } = 1;
     public bool facingRight = true;
 
+    private CircularBuffer<int> facingDirBuffer;
+    private CircularBuffer<bool> facingRightBuffer;
+
     public LayerMask groundLayer;
     protected virtual void Awake()
     {
@@ -42,7 +45,8 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        facingDirBuffer = new CircularBuffer<int>();
+        facingRightBuffer = new CircularBuffer<bool>();
     }
 
     protected virtual void Update()
@@ -131,5 +135,27 @@ public class Entity : MonoBehaviour
     public virtual void Die()
     {
 
+    }
+
+    public override void Track()
+    {
+        if (!gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
+        facingRightBuffer.WriteLastValue(facingRight);
+        facingDirBuffer.WriteLastValue(facingDir);
+    }
+
+    public override void Rewind(float seconds)
+    {
+        if (!gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
+        facingRight = facingRightBuffer.ReadFromBuffer(seconds);
+        facingDir = facingDirBuffer.ReadFromBuffer(seconds);
     }
 }

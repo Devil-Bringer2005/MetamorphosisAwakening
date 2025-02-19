@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4184679813997570294}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AttackCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5953061789857563996}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6455800149798056387}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,8 @@ GameObject:
   - component: {fileID: 2119297352909161507}
   - component: {fileID: 2444738048358826232}
   - component: {fileID: 755723024964514278}
-  m_Layer: 6
+  - component: {fileID: 1876760175092688802}
+  m_Layer: 7
   m_Name: PlayerAnimationHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,8 +166,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1443991203
-  m_SortingLayer: 0
+  m_SortingLayerID: -1474487177
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -191,7 +192,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 354828cae9548a3488a3a480918b9d10, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -212,6 +213,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30774e77f8ecb004cad1b246291f5fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1876760175092688802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700014477456966876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1853014c10a6eb46a8363fdc11758e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackObjectActiveState: 0
+  trackTransform: 0
+  trackVelocity: 0
+  trackAnimator: 1
+  trackAudio: 0
+  trackParticles:
+    enabled: 0
+    value:
+      particleTrackingLimit: 0
+      particleRestartFrom: 0
+      particleSystems: []
 --- !u!1 &6829252280967917763
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +250,8 @@ GameObject:
   - component: {fileID: 4053453375570257360}
   - component: {fileID: 6688781940712515182}
   - component: {fileID: 4205190539633570746}
-  m_Layer: 6
+  - component: {fileID: 4872693039367545673}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -339,11 +364,11 @@ MonoBehaviour:
   facingRight: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   moveSpeed: 8
   jumpForce: 20
   swordReturnImapct: 7
-  jumpPermitted: 0
+  jumpCount: 2
   attackMovement:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
@@ -411,7 +436,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: []
   maxHealth:
-    baseValue: 1000
+    baseValue: 20
     modifiers: []
   armour:
     baseValue: 0
@@ -444,6 +469,29 @@ MonoBehaviour:
   shockStrikeDamage: 10
   currentHealth: 0
   shockStrikePrefab: {fileID: 6305751340980267706, guid: fddc4b8d55bc41845b55fc0f6b287a87, type: 3}
+--- !u!114 &4872693039367545673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829252280967917763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1853014c10a6eb46a8363fdc11758e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackObjectActiveState: 0
+  trackTransform: 1
+  trackVelocity: 0
+  trackAnimator: 0
+  trackAudio: 0
+  trackParticles:
+    enabled: 0
+    value:
+      particleTrackingLimit: 0
+      particleRestartFrom: 0
+      particleSystems: []
 --- !u!1 &7627517273225733637
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1817618662449558594}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: DotsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

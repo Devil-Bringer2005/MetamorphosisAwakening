@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerDeathState : PlayerState
 {
+    float timer = 1.5f;
+
     public PlayerDeathState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -16,6 +18,7 @@ public class PlayerDeathState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        timer = 1.5f;
     }
 
     public override void Exit()
@@ -27,5 +30,15 @@ public class PlayerDeathState : PlayerState
     {
         base.Update();
         player.ZeroVelocity();
+        timer -= Time.deltaTime;
+
+        if (timer < 0)
+        {
+            CheckpointHandler.instance.LastCheckPoint.SpawnPlayer(player.gameObject.transform);
+            PlayerStats stat = player.Stats as PlayerStats;
+            stat.ResetPlayer();
+            GameManager.instance.ReduceLives();
+            stateMachine.ChangeState(player.IdleState);
+        }
     }
 }
