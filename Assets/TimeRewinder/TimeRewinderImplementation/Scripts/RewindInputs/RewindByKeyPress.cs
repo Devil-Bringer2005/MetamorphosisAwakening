@@ -13,7 +13,7 @@ public class RewindByKeyPress : MonoBehaviour
     
     void FixedUpdate()
     {
-        if(Input.GetKey(keyToRewind))                   
+        if(Input.GetKey(keyToRewind) && AbilityHandler.instance.rewindPermitted)                   
         {
             StartRewind();
         }

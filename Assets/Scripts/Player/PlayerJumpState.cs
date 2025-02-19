@@ -22,7 +22,15 @@ public class PlayerJumpState : PlayerState
     public override void Update()
     {
         base.Update();
-        if(yInput <= 0)
+
+        if (Input.GetKeyDown(KeyCode.Space) && player.jumpCount > 0 && player.AbilityHandler.agilityPermitted)
+        {
+            player.jumpCount--;
+            stateMachine.ChangeState(player.JumpState);
+            return;
+        }
+
+        if (yInput <= 0)
         {
             stateMachine.ChangeState(player.AirState);
         }

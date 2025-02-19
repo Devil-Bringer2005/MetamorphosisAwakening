@@ -44,7 +44,7 @@ public class Crystal_Skill : Skill
 
             if (cloneInsteadOfCrystal)
             {
-                player.skill.clone.CreateClone(currentCrystal.transform, Vector3.zero);
+                player.Skill.clone.CreateClone(currentCrystal.transform, Vector3.zero);
                 Destroy(currentCrystal);
             }
             else

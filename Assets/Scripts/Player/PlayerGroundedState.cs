@@ -12,6 +12,7 @@ public class PlayerGroundedState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.jumpCount = 2;
     }
 
     public override void Exit()
@@ -27,10 +28,10 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.AirState);
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            stateMachine.ChangeState(player.BlackholeState);
-        }
+        //if(Input.GetKeyDown(KeyCode.R))
+        //{
+        //    stateMachine.ChangeState(player.BlackholeState);
+        //}
 
         //if(Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword())
         //{
@@ -42,8 +43,9 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.CounterAttackState);
         }
             
-        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected() && player.jumpPermitted)
+        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
         {
+            player.jumpCount = 1;
             stateMachine.ChangeState(player.JumpState);
         }
 

@@ -45,12 +45,12 @@ public class PlayerBlackholeState : PlayerState
 
             if(!skillUsed)
             {
-                if (player.skill.blackhole.CanBeUsed())
+                if (player.Skill.blackhole.CanBeUsed())
                     skillUsed = true;
             }
         }
 
-        if (player.skill.blackhole.SKillCompleted())
+        if (player.Skill.blackhole.SKillCompleted())
             stateMachine.ChangeState(player.AirState);
     }
 }

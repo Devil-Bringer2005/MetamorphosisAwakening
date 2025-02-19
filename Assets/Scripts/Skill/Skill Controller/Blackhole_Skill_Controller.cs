@@ -147,7 +147,6 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         {
             enemy.FreezeEnemy(true);
             CreateKey(enemy);
-
         }
     }
 

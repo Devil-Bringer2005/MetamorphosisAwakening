@@ -22,6 +22,7 @@ public class RewindManager : MonoBehaviour
     /// Tells you if scene is currently being rewinded
     /// </summary>
     public bool IsBeingRewinded { get; private set; } = false;
+    public event Action<bool> OnRewindState;
 
     /// <summary>
     /// Singleton instance of RewindManager
@@ -80,6 +81,7 @@ public class RewindManager : MonoBehaviour
 
         rewindSeconds = seconds;
         IsBeingRewinded = true;
+        OnRewindState?.Invoke(IsBeingRewinded);
     }
 
     /// <summary>
@@ -102,6 +104,7 @@ public class RewindManager : MonoBehaviour
         HowManySecondsAvailableForRewind -= rewindSeconds;
         BuffersRestore?.Invoke(rewindSeconds);
         IsBeingRewinded = false;
+        OnRewindState?.Invoke(IsBeingRewinded);
     }
     /// <summary>
     /// Call if you want to restart the whole tracking system

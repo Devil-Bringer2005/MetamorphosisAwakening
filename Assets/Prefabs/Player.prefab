@@ -166,7 +166,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1443991203
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -339,10 +339,11 @@ MonoBehaviour:
   facingRight: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   moveSpeed: 8
   jumpForce: 20
   swordReturnImapct: 7
+  jumpPermitted: 0
   attackMovement:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}

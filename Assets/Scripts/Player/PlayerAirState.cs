@@ -23,6 +23,14 @@ public class PlayerAirState : PlayerState
         base.Update();
         if (player.IsWallDetected())
             stateMachine.ChangeState(player.WallSlide);
+
+        if (Input.GetKeyDown(KeyCode.Space) && player.jumpCount > 0 && player.AbilityHandler.agilityPermitted)
+        {
+            player.jumpCount--;
+            stateMachine.ChangeState(player.JumpState);
+            return;
+        }
+
         if(player.IsGroundDetected())
         {
             stateMachine.ChangeState(player.IdleState);

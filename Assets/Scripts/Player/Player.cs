@@ -12,7 +12,7 @@ public class Player : Entity
     public float swordReturnImapct;
     private float defaultMoveSpeed;
     private float defaultJumpForce;
-    public bool jumpPermitted = false;
+    [HideInInspector] public int jumpCount = 2;
 
     [Header("Attack info")]
     public Vector2[] attackMovement;
@@ -28,7 +28,9 @@ public class Player : Entity
 
     public PlayerStateMachine StateMachine { get; private set; }
 
-    public SkillManager skill {  get; private set; }
+    public SkillManager Skill {  get; private set; }
+
+    public AbilityHandler AbilityHandler { get; private set; }
 
     public GameObject sword { get; private set; }
 
@@ -54,6 +56,7 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, "Idle");
         MoveState = new PlayerMoveState(this, StateMachine, "Move");
@@ -73,10 +76,23 @@ public class Player : Entity
         DeathState = new PlayerDeathState(this, StateMachine, "Death");
     }
 
+    private void OnEnable()
+    {
+        RewindManager.Instance.OnRewindState += HandleRewind;
+    }
+
+    private void OnDisable()
+    {
+        RewindManager.Instance.OnRewindState -= HandleRewind;
+    }
+
     protected override void Start()
     {
+        base.Start();
+
         StateMachine.Initialize(IdleState);
-        skill = SkillManager.instance;
+        Skill = SkillManager.instance;
+        AbilityHandler = AbilityHandler.instance;
 
         defaultMoveSpeed = moveSpeed;
         defaultJumpForce = jumpForce;
@@ -88,9 +104,31 @@ public class Player : Entity
         StateMachine.currentState.Update();
         CheckForDashInput();
 
-        if(Input.GetKeyDown(KeyCode.C) && SkillManager.instance.crystalSkillPermitted)
+        if(Input.GetKeyDown(KeyCode.C) && AbilityHandler.crystalPermitted)
         {
-            skill.crystal.CanBeUsed();
+            Skill.crystal.CanBeUsed();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z) && AbilityHandler.SlowPermitted)
+        {
+            Skill.slow.CanBeUsed();
+        }
+    }
+
+    private void HandleRewind(bool status)
+    {
+        if (status)
+        {
+            Rb.gravityScale = 0f;
+        }
+        else
+        {
+            Rb.gravityScale = 3.5f;
+            if (IsGroundDetected())
+            {
+                Anim.SetBool("Idle", true);
+                Anim.SetBool("Move", false);
+            }
         }
     }
 
@@ -98,7 +136,7 @@ public class Player : Entity
     {
         if (IsWallDetected())
             return;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanBeUsed())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanBeUsed() && AbilityHandler.agilityPermitted)
         {
             dashDir = Input.GetAxisRaw("Horizontal");
             if(dashDir == 0)
