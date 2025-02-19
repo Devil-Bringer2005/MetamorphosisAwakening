@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Entity, ISlowable
+public class Enemy : Entity
 {
     [SerializeField] protected LayerMask playerLayer;
     [Header("Move Info")]
@@ -92,20 +92,6 @@ public class Enemy : Entity, ISlowable
         {
             moveSpeed = 0;
             Anim.speed = 0;
-        }
-        else
-        {
-            moveSpeed = defaultMoveSpeed;
-            Anim.speed = 1;
-        }
-    }
-
-    public void Slow(bool status, float multiplier = 1)
-    {
-        if (status)
-        {
-            moveSpeed = moveSpeed * multiplier;
-            Anim.speed = multiplier;
         }
         else
         {
