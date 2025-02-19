@@ -22,11 +22,18 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     public bool aggro;
 
+
+
+    void Awake()
+    {
+        enemyRb = GetComponent<Rigidbody2D>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyRb = GetComponent<Rigidbody2D>();
+        player = PlayerManager.instance.player.transform;
+        
         animator = GetComponent<Animator>();
     }
 
@@ -70,7 +77,8 @@ public class EnemyFollowPlayer : MonoBehaviour
     
 
     void Wander()
-    {   
+    {
+        Debug.Log(enemyRb == null);
         enemyRb.velocity = Vector2.right * wanderSpeed *Time.deltaTime;
         isFlyingFreely = Physics2D.OverlapCircle(AirCheck.transform.position, circleRadius, Wall);
         

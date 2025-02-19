@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
 
-        SceneManager.LoadSceneAsync("Level-1");
+        SceneManager.LoadSceneAsync("GloomyForest");
         
     }
     public void QuitGame()

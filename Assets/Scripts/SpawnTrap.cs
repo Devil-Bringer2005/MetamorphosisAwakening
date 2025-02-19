@@ -5,6 +5,12 @@ using UnityEngine;
 public class SpawnTrap : MonoBehaviour
 {
     public GameObject spawnEnemy; // Enemy prefab to spawn
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,7 +18,9 @@ public class SpawnTrap : MonoBehaviour
         {
             if (spawnEnemy != null)
             {
+                animator.SetTrigger("Pop");
                 Instantiate(spawnEnemy, transform.position, Quaternion.identity); // Spawn at trap position
+                Destroy(gameObject,2f);
             }
             else
             {
