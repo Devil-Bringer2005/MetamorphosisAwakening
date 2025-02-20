@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3872385943457495022}
   - component: {fileID: 1216988530777125771}
   - component: {fileID: 3314932314178241481}
+  - component: {fileID: 7824698055950649777}
+  - component: {fileID: 3942165927635932762}
   m_Layer: 0
   m_Name: AcidSplat
   m_TagString: Untagged
@@ -126,3 +128,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+--- !u!70 &7824698055950649777
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889269691462458474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000000021650308, y: 0.018161597}
+  m_Size: {x: 1.2187502, y: 0.54843396}
+  m_Direction: 1
+--- !u!114 &3942165927635932762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889269691462458474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b541ed07469d44a97620c1fd62b47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

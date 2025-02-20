@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2299756055181550018}
   - component: {fileID: 198651935222886267}
   - component: {fileID: 4413434565527860558}
+  - component: {fileID: 7033972074414228081}
   m_Layer: 0
   m_Name: 'Green Beetle '
   m_TagString: Untagged
@@ -233,6 +234,18 @@ MonoBehaviour:
   fireRate: 1
   bullet: {fileID: 889269691462458474, guid: 9dc6cffe77ba92447a00756299a06ac2, type: 3}
   bulletSpawn: {fileID: 5077108651762313558}
+--- !u!114 &7033972074414228081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813611088937194301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b541ed07469d44a97620c1fd62b47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5077108651762313558
 GameObject:
   m_ObjectHideFlags: 0
