@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
 
-        SceneManager.LoadSceneAsync("GloomyForest");
+        SceneManager.LoadSceneAsync("WhiteSpace");
         
     }
     public void QuitGame()

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818b699b0877fa64e846b2143024dda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScene: Level
+  gameOverScene: Title Screen
   maxinmumLives: 3
   currentLives: 3
 --- !u!114 &6490839808677791391
