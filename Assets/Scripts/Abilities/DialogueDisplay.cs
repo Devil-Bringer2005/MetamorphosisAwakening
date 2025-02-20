@@ -5,7 +5,6 @@ using UnityEngine;
 public class DialogueDisplay : MonoBehaviour
 {
     public float displayDuration = 5f;
-
     private void Update()
     {
         displayDuration = Time.deltaTime;

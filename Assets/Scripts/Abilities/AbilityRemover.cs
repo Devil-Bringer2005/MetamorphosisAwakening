@@ -14,7 +14,6 @@ public enum Ability
 public class AbilityRemover : MonoBehaviour
 {
     public Ability lockAbility;
-    public GameObject ActivateDialogue;
 
     private void Awake()
 
@@ -47,7 +46,6 @@ public class AbilityRemover : MonoBehaviour
                 UIManager.instance.crystalUI.SetActive(false);
             }
 
-            ActivateDialogue.SetActive(true);
             Destroy (gameObject);
         }
     }
