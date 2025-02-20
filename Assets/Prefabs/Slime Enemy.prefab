@@ -231,5 +231,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 0}
   facingRight: 1
   isGrounded: 0

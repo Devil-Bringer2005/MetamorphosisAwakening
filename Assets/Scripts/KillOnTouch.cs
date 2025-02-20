@@ -11,4 +11,12 @@ public class KillOnTouch : MonoBehaviour
             collision.GetComponent<CharacterStats>().TakeDamage(100);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<CharacterStats>().TakeDamage(100);
+        }
+    }
 }

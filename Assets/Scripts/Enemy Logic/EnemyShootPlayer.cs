@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShootPlayer : MonoBehaviour
+public class EnemyShootPlayer : MonoBehaviour, ISlowable
 {
     
     public float speed;
@@ -15,10 +15,13 @@ public class EnemyShootPlayer : MonoBehaviour
     public GameObject bulletSpawn;
     private Transform player;
 
+    private float defaultSpeed;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyAnim = GetComponent<Animator>();
+        defaultSpeed = speed;
         
     }
     void Update()
@@ -54,5 +57,19 @@ public class EnemyShootPlayer : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lineOfSight);
         Gizmos.DrawWireSphere(transform.position, shootingRange);
 
+    }
+
+    public void Slow(bool status, float multiplier = 1)
+    {
+        if (status)
+        {
+            speed = speed * multiplier;
+            enemyAnim.speed = multiplier;
+        }
+        else
+        {
+            speed = defaultSpeed;
+            enemyAnim.speed = 1;
+        }
     }
 }

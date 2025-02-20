@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GloomyForest.unity
     guid: 7886a80950ad33b4da6c914daaa83cdd
+  - enabled: 1
+    path: Assets/Scenes/LonelyCaves.unity
+    guid: 864eb92a85147614dafa959ab166fd2b
   m_configObjects: {}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class EnemyFollowPlayer : MonoBehaviour
+public class EnemyFollowPlayer : MonoBehaviour, ISlowable
 {
 
     public float speed;
@@ -21,7 +21,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     public bool isFlyingFreely;
 
     public bool aggro;
-
+    private float defaultSpeed;
 
 
     void Awake()
@@ -35,6 +35,7 @@ public class EnemyFollowPlayer : MonoBehaviour
         player = PlayerManager.instance.player.transform;
         
         animator = GetComponent<Animator>();
+        defaultSpeed = speed;
     }
 
     // Update is called once per frame
@@ -98,5 +99,19 @@ public class EnemyFollowPlayer : MonoBehaviour
         isfacingRight = !isfacingRight;
         transform.Rotate(new Vector3(0, 180, 0));
         wanderSpeed = -wanderSpeed;
+    }
+
+    public void Slow(bool status, float multiplier = 1)
+    {
+        if (status)
+        {
+            speed = speed * multiplier;
+            animator.speed = multiplier;
+        }
+        else
+        {
+            speed = defaultSpeed;
+            animator.speed = 1;
+        }
     }
 }
