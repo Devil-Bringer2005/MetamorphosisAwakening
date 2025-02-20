@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LonelyCaves.unity
     guid: 864eb92a85147614dafa959ab166fd2b
+  - enabled: 1
+    path: Assets/Scenes/StarryNight.unity
+    guid: 0bdc9d52b8d98d641bd1530c48968087
   m_configObjects: {}

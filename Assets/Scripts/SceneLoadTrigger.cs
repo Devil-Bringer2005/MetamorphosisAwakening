@@ -40,6 +40,23 @@ public class SceneLoadTrigger : MonoBehaviour
     private void LoadScenes()
     {
         for (int i = 0; i < _sceneToLoad.Length; i++)
-            SceneManager.LoadSceneAsync(_sceneToLoad[i], LoadSceneMode.Additive);
+        {
+            bool isSceneLoaded = false;
+            for (int j = 0; j < SceneManager.sceneCount; j++)
+            {
+                Scene loadedScene = SceneManager.GetSceneAt(j);
+                Debug.Log(loadedScene.name);
+                //Debug.Log(_sceneToLoad[j].SceneName);
+                if (loadedScene.name == _sceneToLoad[i])
+                {
+                    isSceneLoaded = true;
+                    break;
+                }
+            }
+            if (!isSceneLoaded)
+            {
+                SceneManager.LoadSceneAsync(_sceneToLoad[i], LoadSceneMode.Additive);
+            }
+        }
     }
 }
